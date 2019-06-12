@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>controls/icon_btn_on.png</file>
+        <file>controls/icon_btn_on_active.png</file>
+        <file>controls/OnOffSwitch.qml</file>
+    </qresource>
+</RCC>

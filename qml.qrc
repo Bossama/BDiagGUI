@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>content/PageDiagnostic.qml</file>
+        <file>content/PageCredits.qml</file>
+        <file>content/PageMultitouch.qml</file>
+        <file>content/ParticleFlame.qml</file>
+        <file>content/FileOpenBox.qml</file>
+        <file>content/PageAnalogMeters.qml</file>
+        <file>content/PageConfiguration.qml</file>
+        <file>content/AnalogMeter.qml</file>
+        <file>content/AudioFader.qml</file>
+        <file>content/Thermometer.qml</file>
+        <file>content/PageWebbrowser.qml</file>
+        <file>content/PageVirtualKeyboardTest.qml</file>
+        <file>content/PageGpio.qml</file>
+        <file>fonts/fontawesome-webfont.ttf</file>
+        <file>fonts/icomoon.ttf</file>
+        <file>fonts/roboto-regular.ttf</file>
+    </qresource>
+</RCC>

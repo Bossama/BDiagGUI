@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<favorites>
+    <item>
+        <name>Home</name>
+        <url>file:///usr/share/phytec-qtdemo/html/index.html</url>
+    </item>
+    <item>
+        <name>Phytec Web</name>
+        <url>http://www.phytec.de</url>
+    </item>
+    <item>
+        <name>friWare</name>
+        <url>http://www.friware.com</url>
+    </item>
+    <item>
+        <name>Qt Homepage</name>
+        <url>http://www.qt.io</url>
+    </item>
+    <item>
+        <name>Google</name>
+        <url>http://www.google.com</url>
+    </item>
+    <item>
+        <name>Wikipedia</name>
+        <url>https://www.wikipedia.de</url>
+    </item>
+</favorites>
