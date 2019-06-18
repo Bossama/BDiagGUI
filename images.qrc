@@ -48,5 +48,11 @@
         <file>images/icon_config.png</file>
         <file>images/icon_diagnostic.png</file>
         <file>images/icon_info.png</file>
+        <file>images/autodiag.png</file>
+        <file>images/diagnostic.png</file>
+        <file>images/diagnostic2.png</file>
+        <file>images/diagnostic2.xcf</file>
+        <file>images/icon_history.png</file>
+        <file>images/icon_autodiag.png</file>
     </qresource>
 </RCC>

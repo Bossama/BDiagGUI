@@ -37,7 +37,7 @@ Window {
     width: 800
     height: 480
     id: root
-    title: qsTr("phytec-qtdemo")
+    title: qsTr("BDiag_GUI")
     color: "black"
 
     Component.onCompleted: root.showMaximized()
@@ -101,12 +101,12 @@ Window {
             height: 174
             scale: PathView.iconScale
             opacity: PathView.iconOpacity
-            Image {
+            Image { //Icon  Size
                 id: icon_img
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: parent.top
                 source: icon
-                width: 128 ; height: 128
+                width: 200 ; height: 200
                 fillMode: Image.PreserveAspectFit
                 smooth: true
             }
@@ -125,23 +125,23 @@ Window {
             }
         }
     }
+
     Component {
         id: menu_highlight
-        Item {
-            width:134
+        Item {  // Icon Baground Position
+            width: 134
             height: 174
-            Rectangle { // Rectangle for Icon
-                width: 134
-                height: 134
+            Rectangle {
+                x: -33
+                y: 0 // Rectangle for Icon
+                width: 200
+                height: 200
                 radius: 10
                 opacity: 0.25
                 border.color: "white"
             }
-
-
             MouseArea {
                 anchors.fill: parent
-
                 onClicked: {
                     var myModelItem = menue_model.get(path_view.currentIndex)
                     client_area.clientUrl = myModelItem.pageSource
@@ -150,59 +150,14 @@ Window {
         }
     }
 
-    PathView {
-        id: path_view
-        anchors.fill: parent
-        model: menue_model
-        delegate: menu_delegate
-        highlight: menu_highlight
-        preferredHighlightBegin: 0.5
-        preferredHighlightEnd: 0.5
 
-        path: Path {
-            startX: root.width/5
-            startY: 100
-            PathAttribute { name: "iconScale"; value: 0.5 }
-            PathAttribute { name: "iconOpacity"; value: 0.2 }
-            PathQuad { x: root.width/2; y: root.height/3; controlX: 100; controlY: root.height/3 }
-            PathAttribute { name: "iconScale"; value: 1.0 }
-            PathAttribute { name: "iconOpacity"; value: 1.0 }
-            PathQuad { x: root.width-root.width/5; y: 100; controlX: root.width-100; controlY: root.height/3 }
-            PathAttribute { name: "iconScale"; value: 0.5 }
-            PathAttribute { name: "iconOpacity"; value: 0.2 }
-
-        }
-        onMovementStarted: {
-            description_item.state = "NOTVISIBLE"
-        }
-
-        onMovementEnded: {
-            description_item.state = "VISIBLE"
-            var myModelItem = menue_model.get(path_view.currentIndex)
-            description_text.text = myModelItem.description
-        }
-        Component.onCompleted: {
-            description_item.state = "VISIBLE"
-            var myModelItem = menue_model.get(path_view.currentIndex)
-            description_text.text = myModelItem.description
-        }
-
-        Text {
-            id: text_loading
-            anchors.horizontalCenter: parent.horizontalCenter
-            y: 20
-            color: "grey"
-            text: "loading..."
-            font.bold: true
-            visible: false
-        }
-
-    }
 
     Item {
         id: description_item_dummy
         width: 600
         height: 120
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 30
         y: (root.height*3/5)
         anchors.horizontalCenter: parent.horizontalCenter
     }
@@ -212,6 +167,7 @@ Window {
     // This Item displays the description text
     // It has two States "VISIBLE" and "NOTVISIBLE".
     // The States are set from PathView depending on movement of the icons
+
     Item {
         id: description_item
 
@@ -276,6 +232,7 @@ Window {
             }
         ]
     }
+
     Image {
         id: icon_loading
         anchors.centerIn: parent
@@ -295,6 +252,55 @@ Window {
     ////////////////////////////////////////////////////////////////////////////
     // Client Items are displayed inside this item
     // they are shown or not by setting the visibility
+
+    PathView {
+        id: path_view
+        anchors.fill: parent
+        model: menue_model
+        delegate: menu_delegate
+        highlight: menu_highlight
+        preferredHighlightBegin: 0.5
+        preferredHighlightEnd: 0.5
+
+        path: Path {
+            startX: root.width/5
+            startY: 100
+            PathAttribute { name: "iconScale"; value: 0.5 }
+            PathAttribute { name: "iconOpacity"; value: 0.2 }
+            PathQuad { x: root.width/2; y: root.height/3; controlX: 100; controlY: root.height/3 }
+            PathAttribute { name: "iconScale"; value: 1.0 }
+            PathAttribute { name: "iconOpacity"; value: 1.0 }
+            PathQuad { x: root.width-root.width/5; y: 100; controlX: root.width-100; controlY: root.height/3 }
+            PathAttribute { name: "iconScale"; value: 0.5 }
+            PathAttribute { name: "iconOpacity"; value: 0.2 }
+
+        }
+        onMovementStarted: {
+            description_item.state = "NOTVISIBLE"
+        }
+
+        onMovementEnded: {
+            description_item.state = "VISIBLE"
+            var myModelItem = menue_model.get(path_view.currentIndex)
+            description_text.text = myModelItem.description
+        }
+        Component.onCompleted: {
+            description_item.state = "VISIBLE"
+            var myModelItem = menue_model.get(path_view.currentIndex)
+            description_text.text = myModelItem.description
+        }
+
+        Text {
+            id: text_loading
+            anchors.horizontalCenter: parent.horizontalCenter
+            y: 20
+            color: "grey"
+            text: "loading..."
+            font.bold: true
+            visible: false
+        }
+    }
+
     Item {
         id: client_area
         anchors.fill: parent
@@ -338,6 +344,7 @@ Window {
 
         }
     }
+
 
     InputPanel {
         id: inputPanel
