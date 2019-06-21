@@ -24,131 +24,57 @@
 **
 ****************************************************************************/
 
-import QtQuick 2.3
-import QtQuick.Controls 1.2
+import QtQuick 2.9
+import QtQuick.Controls 2.2
 import QtQuick.Controls.Styles 1.2
+import Qt.labs.calendar 1.0
+import QtQuick.Window 2.3
 
 
 Rectangle {
-    width: 100
-    height: 62
-    color: "black"
+    width: 800
+    height: 480
+    color: "grey"
 
-    Item {
-        width: parent.width/3
-        height: parent.height
-        Text {
-            text: "Reaktor<br>Pressure"
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 10
-            font.bold: true
-            font.pixelSize: 24
-            horizontalAlignment: Text.AlignHCenter
-            color: "lightgrey"
-        }
+//    BusyIndicator {
+//        id: busyIndicator
+//        x: 337
+//        y: 189
+//        width: 127
+//        height: 102
+//        //running: image.status === Image.Loading
+//    }
 
-        AnalogMeter {
-            id: analogMeter
-            anchors.centerIn: parent
-            value: analogMeterSlider.value
-            minValue: analogMeterSlider.minimumValue
-            maxValue: analogMeterSlider.maximumValue
-            unit: "Bar"
+//    Text {
+//        id: text1
+//        x: 243
+//        y: 26
+//        width: 198
+//        height: 36
+//        text: qsTr("Showing Vehicule Infos")
+//        font.pixelSize: 31
+//    }
 
-        }
+//    Text {
+//        id: text2
+//        x: 316
+//        y: 297
+//        text: qsTr("Connecting to ECU")
+//        font.pixelSize: 20
+//    }
 
-        Slider {
-            id: analogMeterSlider
-            width: parent.width - 40
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 30
-            minimumValue: 0
-            maximumValue: 250
-            stepSize: 1
-            style: SliderStyle {
-                handle: Rectangle {
-                    width: 40
-                    height: 40
-                    color: "lightgrey"
-                    radius: 8
-                }
-            }
-        }
+    Loader {
+        id: popupLoader
+        active: false
+        source: "qrc:/TestPopup.qml"
+        onLoaded: item.open()
     }
 
-    Item {
-        width: parent.width/3
-        height: parent.height
-        anchors.horizontalCenter: parent.horizontalCenter
-        Text {
-            text: "Ambient<br>Temperature"
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 10
-            font.bold: true
-            font.pixelSize: 24
-            horizontalAlignment: Text.AlignHCenter
-            color: "lightgrey"
-        }
-        Thermometer {
-            id: thermometer
-            anchors.centerIn: parent
-            minValue: -30
-            maxValue: 70
-            value: thermometerSlider.value
-            unit: "°C"
-//            scale: 0.8
-        }
-        Slider {
-            id: thermometerSlider
-            minimumValue: thermometer.minValue
-            maximumValue: thermometer.maxValue
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 30
-            width: parent.width - 60
-            stepSize: 1
-            style: SliderStyle {
-                handle: Rectangle {
-                    width: 40
-                    height: 40
-                    color: "lightgrey"
-                    radius: 8
-                }
-            }
-        }
+    function openMyPopup() {
+        if( popupLoader.active )
+            popupLoader.item.open()
+        else
+            popupLoader.active = true
     }
 
-    Item {
-        width: parent.width/3
-        height: parent.height
-        anchors.right: parent.right
-        Text {
-            text: "Audio Fader"
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 10
-            font.bold: true
-            font.pixelSize: 24
-            horizontalAlignment: Text.AlignHCenter
-            color: "lightgrey"
-        }
-        AudioFader {
-            id: audioFader
-            anchors.centerIn: parent
-        }
-
-        Timer {
-            interval: 50
-            running: true
-            repeat: true
-
-            onTriggered: {
-                audioFader.meterValue = (0.75 + (Math.random()/4)) * audioFader.faderValue
-
-            }
-        }
-    }
 }

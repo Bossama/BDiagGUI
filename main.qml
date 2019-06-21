@@ -248,7 +248,6 @@ Window {
     }
 
 
-
     ////////////////////////////////////////////////////////////////////////////
     // Client Items are displayed inside this item
     // they are shown or not by setting the visibility
@@ -333,7 +332,10 @@ Window {
 
         Image {
             id: back
-            source: "qrc:/images/btn_home.png"
+            x: 733
+            anchors.rightMargin: 13
+            anchors.topMargin: 409
+            source: "qrc:/images/btn_home2.png"
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.margins: 16

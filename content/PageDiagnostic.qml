@@ -60,8 +60,8 @@ Item {
          id: appDelegate
          Item {
              width: 300 ; height: 300
-             scale: PathView.iconScale
-             opacity: PathView.iconOpacity
+             //scale: PathView.iconScale
+             //opacity: PathView.iconOpacity
              Image { // Icon Frame
                  id: icon_img
                  anchors.horizontalCenter: parent.horizontalCenter
@@ -90,7 +90,7 @@ Item {
                  anchors.fill: parent
                  //onClicked: view.currentIndex = index
                  onClicked: {
-                     var myModelItem = appModel.get(path_view.currentIndex)
+                     var myModelItem = diagModel.get(path_view.currentIndex)
                      client_area.clientUrl = myModelItem.pageSource
                  }
              }
@@ -158,7 +158,7 @@ Item {
          MouseArea{
              anchors.fill: parent
              onClicked: {
-                 var myModelItem = appModel.get(path_view.currentIndex)
+                 var myModelItem = diagModel.get(path_view.currentIndex)
                  client_area.clientUrl = myModelItem.pageSource
              }
          }

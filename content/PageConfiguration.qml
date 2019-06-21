@@ -25,7 +25,7 @@
 ****************************************************************************/
 
 import QtQuick 2.3
-import Qt.labs.folderlistmodel 2.1
+//import Qt.labs.folderlistmodel 2.1
 
 Rectangle {
     id: root
@@ -33,152 +33,135 @@ Rectangle {
     height: 480
     color: "black"
 
-    function resetImagePos() {
-        imageViewer.scale = 1.0
-        imageViewer.rotation = 0.0
-        imageViewer.x = 0
-        imageViewer.y = 0
-    }
+      // Delegate for the recipes.  This delegate has two modes:
+      // 1. List mode (default), which just shows the picture and title of the recipe.
+      // 2. Details mode, which also shows the ingredients and method.
+      Component {
+          id: recipeDelegate
+  //! [0]
+          Item {
+              id: recipe
 
-    ///////////////////////////////////////////////////////////////
-    // Display the selected image
-    Rectangle {
-        height: parent.height* 4 / 5
-        width: parent.width
-        anchors.top: parent.top
-        clip: true
-        color: "grey"
-        Image {
-            id: imageViewer
-            height: parent.height
-            width: parent.width
-            fillMode: Image.PreserveAspectFit
-            PinchArea {
-                anchors.fill: parent
-                pinch.target: imageViewer
-                pinch.minimumScale: 0.5
-                pinch.maximumScale: 3.0
-                pinch.minimumRotation: -3600
-                pinch.maximumRotation: 3600
-                pinch.dragAxis: Pinch.XAndYAxis
-            }
-        }
-    }
+              // Create a property to contain the visibility of the details.
+              // We can bind multiple element's opacity to this one property,
+              // rather than having a "PropertyChanges" line for each element we
+              // want to fade.
+              property real detailsOpacity : 0
+  //! [0]
+              width: listView.width
+              height: 70
 
+              // A simple rounded rectangle for the background
+              Rectangle {
+                  id: background
+                  x: 2; y: 2; width: parent.width - x*2; height: parent.height - y*2
+                  color: "ivory"
+                  border.color: "orange"
+                  radius: 5
+              }
 
-    ///////////////////////////////////////////////////////////////
-    // Display the name of the selected file on top center position
-    Item {
-        anchors.horizontalCenter: root.horizontalCenter
-        anchors.top: root.top
-        anchors.topMargin: 20
-        Rectangle {
-            anchors.centerIn: parent
-            width: file_name.width + 8
-            height: file_name.height + 8
-            color: "grey"
-            opacity: 0.75
-            radius: height / 3.0
-        }
-        Text {
-            id: file_name
-            anchors.centerIn: parent
-            text: "no file selected"
-        }
-    }
+              // This mouse region covers the entire delegate.
+              // When clicked it changes mode to 'Details'.  If we are already
+              // in Details mode, then no change will happen.
+  //! [1]
+              MouseArea {
+                  anchors.fill: parent
+                  onClicked: recipe.state = 'Details';
+              }
 
+              // Lay out the page: picture, title and ingredients at the top, and method at the
+              // bottom.  Note that elements that should not be visible in the list
+              // mode have their opacity set to recipe.detailsOpacity.
 
-    ///////////////////////////////////////////////////////////////
-    // Get files in the folder
-    FolderListModel {
-        id: folder_model
-        showDirs: false
-        //showDotAndDotDot: true
-        //showDirsFirst: true
-        nameFilters: [ "*.png", "*.jpg", "*.JPG" ]
+              Row {
+                  id: topLayout
+                  x: 10; y: 10; height: recipeImage.height; width: parent.width
+                  spacing: 10
 
-        onFolderChanged: {
-            //folder_name_txt.text = folder_model.folder
-        }
+                  Image {
+                      id: recipeImage
+                      width: 50; height: 50
+                      source: picture
+                  }
+  //! [1]
+                  Column {
+                      width: background.width - recipeImage.width - 20; height: recipeImage.height
+                      spacing: 5
 
-        Component.onCompleted: {
-            folder_model.folder = "file:///usr/share/phytec-qtdemo/images"
-        }
-    }
+                      Text {
+                          text: title
+                          font.bold: true; font.pointSize: 16
+                      }
 
-    ///////////////////////////////////////////////////////////////
-    // preview area
-    ListView {
-        id: list_view
-        width: parent.width
-        height: parent.height / 5
-        anchors.bottom: parent.bottom
-        orientation: ListView.Horizontal
-        model: folder_model
-        spacing: 10
-        delegate: preview_delegate
-    }
+//                      Text {
+//                          text: "Ingredients"
+//                          font.bold: true
+//                          opacity: recipe.detailsOpacity
+//                          font.pixelSize: 12
+//                      }
 
-    Component {
-        id: preview_delegate
-        Rectangle {
-            id: delegate_rect
-            height: list_view.height
-            width: height * 4.0 / 3.0
-            border.color: ListView.isCurrentItem ? "lightgrey" : "transparent"
-            color: "#303030"
+                      Text {
+                          text: ingredients
+                          wrapMode: Text.WordWrap
+                          width: parent.width
+                          opacity: recipe.detailsOpacity
+                          font.pixelSize: 12
+                      }
+                  }
+              }
 
-            Image {
-                anchors.fill: parent
-                anchors.margins: 3
-                source: fileURL
-                fillMode: Image.PreserveAspectFit
+  //! [2]
+              Item {
+                  id: details
+                  x: 10; width: parent.width - 20
 
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        imageViewer.source = fileURL
-                        console.log( "Image scale = " + imageViewer.scale + ", Pos X/Y: " + imageViewer.x + " / " + imageViewer.y )
-                        resetImagePos()
-                        file_name.text = fileName
-                        list_view.currentIndex = index
-                    }
-                }
-            }
-        }
-    }
+                  anchors { top: topLayout.bottom; topMargin: 10; bottom: parent.bottom; bottomMargin: 10 }
+                  opacity: recipe.detailsOpacity
+  //! [3]
+              }
 
-    ///////////////////////////////////////////////////////////////
-    // File selector
-    Image {
-        source: "../images/btn_file.png"
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.margins: 20
-        MouseArea{
-            anchors.fill: parent
-            onClicked: {
-                file_open_box.open();
+              // A button to close the detailed view, i.e. set the state back to default ('').
+              TextButton {
+                  y: 10
+                  anchors { right: background.right; rightMargin: 10 }
+                  opacity: recipe.detailsOpacity
+                  text: "Close"
 
-            }
-        }
-    }
+                  onClicked: recipe.state = '';
+              }
 
-    FileOpenBox {
-        id: file_open_box
+              states: State {
+                  name: "Details"
 
-        anchors.fill: parent
-        anchors.margins: 16
-        folder: folder_model.folder
-        onOkClicked: {
-            folder_model.folder = folder
-            imageViewer.source = selectedFileURL
-            file_name.text = selectedFileName
-            list_view.currentIndex = -1
-            resetImagePos()
-        }
-        Component.onCompleted: {
-            nameFilters = folder_model.nameFilters
-        }
-    }
-}
+                  PropertyChanges { target: background; color: "white" }
+                  PropertyChanges { target: recipeImage; width: 130; height: 130 } // Make picture bigger
+                  PropertyChanges { target: recipe; detailsOpacity: 1; x: 0 } // Make details visible
+                  PropertyChanges { target: recipe; height: listView.height } // Fill the entire list area with the detailed view
+
+                  // Move the list so that this item is at the top.
+                  PropertyChanges { target: recipe.ListView.view; explicit: true; contentY: recipe.y }
+
+                  // Disallow flicking while we're in detailed view
+                  PropertyChanges { target: recipe.ListView.view; interactive: false }
+              }
+
+              transitions: Transition {
+                  // Make the state changes smooth
+                  ParallelAnimation {
+                      ColorAnimation { property: "color"; duration: 500 }
+                      NumberAnimation { duration: 300; properties: "detailsOpacity,x,contentY,height,width" }
+                  }
+              }
+          }
+          //! [3]
+              }
+
+              // The actual list
+              ListView {
+                  id: listView
+                  anchors.fill: parent
+                  model: RecipesModel {}
+                  delegate: recipeDelegate
+              }
+          }
+

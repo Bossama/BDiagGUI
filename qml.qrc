@@ -17,5 +17,7 @@
         <file>fonts/fontawesome-webfont.ttf</file>
         <file>fonts/icomoon.ttf</file>
         <file>fonts/roboto-regular.ttf</file>
+        <file>content/TextButton.qml</file>
+        <file>content/RecipesModel.qml</file>
     </qresource>
 </RCC>

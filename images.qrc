@@ -54,5 +54,13 @@
         <file>images/diagnostic2.xcf</file>
         <file>images/icon_history.png</file>
         <file>images/icon_autodiag.png</file>
+        <file>images/icon_autodiag2.png</file>
+        <file>images/btn_home2.png</file>
+        <file>images/icon_network.png</file>
+        <file>images/icon_network2.png</file>
+        <file>images/icon_users.png</file>
+        <file>images/icon_about.png</file>
+        <file>images/icon_OTA.png</file>
+        <file>images/icon_language.png</file>
     </qresource>
 </RCC>
