@@ -36,32 +36,32 @@ Rectangle {
     height: 480
     color: "grey"
 
-//    BusyIndicator {
-//        id: busyIndicator
-//        x: 337
-//        y: 189
-//        width: 127
-//        height: 102
-//        //running: image.status === Image.Loading
-//    }
+    BusyIndicator {
+        id: busyIndicator
+        x: 337
+        y: 189
+        width: 127
+        height: 102
+        //running: image.status === Image.Loading
+    }
 
-//    Text {
-//        id: text1
-//        x: 243
-//        y: 26
-//        width: 198
-//        height: 36
-//        text: qsTr("Showing Vehicule Infos")
-//        font.pixelSize: 31
-//    }
+    Text {
+        id: text1
+        x: 243
+        y: 26
+        width: 198
+        height: 36
+        text: qsTr("Showing Vehicule Infos")
+        font.pixelSize: 31
+    }
 
-//    Text {
-//        id: text2
-//        x: 316
-//        y: 297
-//        text: qsTr("Connecting to ECU")
-//        font.pixelSize: 20
-//    }
+    Text {
+        id: text2
+        x: 316
+        y: 297
+        text: qsTr("Connecting to ECU")
+        font.pixelSize: 20
+    }
 
     Loader {
         id: popupLoader

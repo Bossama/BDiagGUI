@@ -31,7 +31,11 @@ Rectangle {
     id: root
     width: 800
     height: 480
-    color: "black"
+    Image {
+        id: background_image
+        anchors.fill: parent
+        source: "qrc:/images/BG_Image_Phytec_800x480.png"
+    }
 
       // Delegate for the recipes.  This delegate has two modes:
       // 1. List mode (default), which just shows the picture and title of the recipe.
@@ -55,8 +59,18 @@ Rectangle {
               Rectangle {
                   id: background
                   x: 2; y: 2; width: parent.width - x*2; height: parent.height - y*2
-                  color: "ivory"
-                  border.color: "orange"
+                  color: "#5c5b60"
+                  gradient: Gradient {
+                      GradientStop {
+                          position: 0.00;
+                          color: "#A9A9A9";
+                      }
+                      GradientStop {
+                          position: 1.00;
+                          color: "#D3D3D3";
+                      }
+                  }
+                  border.color: "#000000"
                   radius: 5
               }
 
