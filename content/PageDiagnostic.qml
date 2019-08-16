@@ -27,6 +27,7 @@
 import QtQuick 2.3
 import QtQuick.Controls 2.2
 import QtQuick.Dialogs 1.2
+import QtQuick.Dialogs.qml 1.0
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
 
@@ -92,6 +93,7 @@ Item {
                  onClicked: {
                      var myModelItem = diagModel.get(path_view.currentIndex)
                      client_area.clientUrl = myModelItem.pageSource
+                     controller.diagRequest();
                  }
              }
          }

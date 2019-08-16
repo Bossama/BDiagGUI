@@ -1,6 +1,9 @@
 TEMPLATE = app
 
 QT += qml quick widgets dbus
+CONFIG += c++11 qml_debug
+DBUS_INTERFACES += controller.xml
+DBUS_ADAPTORS += controller.xml
 
 SOURCES += main.cpp \
     src/FileIo.cpp \
@@ -34,4 +37,5 @@ OTHER_FILES += \
 DISTFILES += \
     fonts/fontawesome-webfont.ttf \
     fonts/icomoon.ttf \
-    fonts/roboto-regular.ttf
+    fonts/roboto-regular.ttf \
+    controller.xml
