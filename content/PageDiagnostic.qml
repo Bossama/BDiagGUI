@@ -26,10 +26,12 @@
 
 import QtQuick 2.3
 import QtQuick.Controls 2.2
+import QtQuick.Window 2.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Dialogs.qml 1.0
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
+import com.ACTIA.BDiag 1.0
 
 Item {
     id: root
@@ -39,6 +41,11 @@ Item {
         anchors.fill: parent
         color: "#959792" //"#3C3CA7"
         opacity: 1
+    }
+
+    DiagController{
+        id : qml_diagcontroller
+
     }
 
     ListModel {
@@ -91,9 +98,9 @@ Item {
                  anchors.fill: parent
                  //onClicked: view.currentIndex = index
                  onClicked: {
+                     qml_diagcontroller.diagRequest()
                      var myModelItem = diagModel.get(path_view.currentIndex)
                      client_area.clientUrl = myModelItem.pageSource
-                     controller.diagRequest();
                  }
              }
          }
@@ -160,6 +167,7 @@ Item {
          MouseArea{
              anchors.fill: parent
              onClicked: {
+                 qml_diagcontroller.diagRequest()
                  var myModelItem = diagModel.get(path_view.currentIndex)
                  client_area.clientUrl = myModelItem.pageSource
              }

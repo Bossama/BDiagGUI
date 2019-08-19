@@ -29,6 +29,7 @@ import QtQuick.Window 2.0
 import QtQuick.Controls 1.2
 import QtGraphicalEffects 1.0
 import QtQuick.VirtualKeyboard 1.0
+import com.ACTIA.BDiag 1.0
 
 
 Window {
@@ -39,8 +40,11 @@ Window {
     id: root
     title: qsTr("BDiag_GUI")
     color: "black"
-
     Component.onCompleted: root.showMaximized()
+
+    DiagController{
+        id :qml_diagcontroller
+    }
 
     Image {
         id: background_image
@@ -145,6 +149,7 @@ Window {
                 onClicked: {
                     var myModelItem = menue_model.get(path_view.currentIndex)
                     client_area.clientUrl = myModelItem.pageSource
+                    qml_diagcontroller.diagRequest()
                 }
             }
         }
@@ -196,6 +201,7 @@ Window {
             onClicked: {
                 var myModelItem = menue_model.get(path_view.currentIndex)
                 client_area.clientUrl = myModelItem.pageSource
+                qml_diagcontroller.diagRequest()
             }
         }
 
@@ -327,7 +333,6 @@ Window {
                     icon_loading.visible = false
                 }
             }
-
         }
 
         Image {
@@ -343,7 +348,6 @@ Window {
                 anchors.fill: parent
                 onClicked: client_area.clientUrl = ""
             }
-
         }
     }
 

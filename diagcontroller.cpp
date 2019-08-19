@@ -22,6 +22,7 @@ QString DiagController::diagRequest()
         if (reply.isValid()) {
             printf("Reply was: %s\n", qPrintable(reply.value()));
                      qDebug() <<  qPrintable(reply.value()) ;
+
         }
 
         //fprintf(stderr, "Call failed: %s\n", qPrintable(reply.error().message()));

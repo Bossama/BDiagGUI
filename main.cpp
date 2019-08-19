@@ -50,35 +50,35 @@ void WriteDefaultSettings()
 
 }
 
-//void method1()
-//{
-//    qDebug() << "Method 1:";
+/*void method1()
+{
+    qDebug() << "Method 1:";
 
-//    QDBusReply<QStringList> reply = QDBusConnection::systemBus().interface()->registeredServiceNames();
-//    if (!reply.isValid()) {
-//        qDebug() << "Error:" << reply.error().message();
-//        exit(1);
-//    }
-//    foreach (QString name, reply.value())
-//        qDebug() << name;
-//}
+    QDBusReply<QStringList> reply = QDBusConnection::systemBus().interface()->registeredServiceNames();
+    if (!reply.isValid()) {
+        qDebug() << "Error:" << reply.error().message();
+        exit(1);
+    }
+    foreach (QString name, reply.value())
+        qDebug() << name;
+}
 
-//void method2()
-//{
-//    qDebug() << "Method 2:";
+void method2()
+{
+    qDebug() << "Method 2:";
 
-//    QDBusConnection bus = QDBusConnection::systemBus();
-//    QDBusInterface dbus_iface("org.freedesktop.DBus",
-//                              "/org/freedesktop/DBus",
-//                              "org.freedesktop.DBus", bus);
-//    qDebug() << dbus_iface.call("ListNames").arguments().at(0);
-//}
+    QDBusConnection bus = QDBusConnection::systemBus();
+    QDBusInterface dbus_iface("org.freedesktop.DBus",
+                              "/org/freedesktop/DBus",
+                              "org.freedesktop.DBus", bus);
+    qDebug() << dbus_iface.call("ListNames").arguments().at(0);
+}
 
-//void method3()
-//{
-//    qDebug() << "Method 3:";
-//    qDebug() << QDBusConnection::systemBus().interface()->registeredServiceNames().value();
-//}
+void method3()
+{
+    qDebug() << "Method 3:";
+    qDebug() << QDBusConnection::systemBus().interface()->registeredServiceNames().value();
+}*/
 
 int main(int argc, char *argv[])
 {
@@ -126,6 +126,8 @@ int main(int argc, char *argv[])
     // to avoid conflicts when accessed from different locations in the source code.
     qmlRegisterSingletonType<ProcessIf>("FriWare.ProcessIf", 1, 0, "ProcessIf", ProcessIf::processif_singletontype_provider );
 
+    qmlRegisterType<DiagController>("com.ACTIA.BDiag", 1, 0, "DiagController");
+
 
     if (!QDBusConnection::systemBus().isConnected()) {
         fprintf(stderr, "Cannot connect to the D-Bus session bus.\n"
@@ -134,15 +136,17 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-//    method1();
-//    method2();
-//    method3();
+/*  method1();
+    method2();
+    method3();*/
 
     QQmlApplicationEngine engine;
 
     DiagController diagControl;
     engine.rootContext()->setContextProperty("diagControl", &diagControl);
     diagControl.diagRequest();
+
+
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
