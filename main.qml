@@ -337,9 +337,9 @@ Window {
 
         Image {
             id: back
-            x: 733
-            anchors.rightMargin: 13
-            anchors.topMargin: 409
+            x: 8
+            anchors.rightMargin: 738
+            anchors.topMargin: 418
             source: "qrc:/images/btn_home2.png"
             anchors.right: parent.right
             anchors.top: parent.top

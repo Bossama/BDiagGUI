@@ -53,7 +53,8 @@ Item {
        ListElement {
            name: "DIAGNOSTIC";
            icon: "qrc:/images/icon_autodiag.png";
-           description: " Run a full diagnostic to Check all components connected to the BDiag Tool " }
+           description: " Run a full diagnostic to Check all components connected to the BDiag Tool "
+           pageSource: "qrc:/content/PageAutoDiag.qml"}
        ListElement {
            name: "HISTORY";
            icon: "qrc:/images/icon_history.png"
@@ -98,7 +99,7 @@ Item {
                  anchors.fill: parent
                  //onClicked: view.currentIndex = index
                  onClicked: {
-                     qml_diagcontroller.diagRequest()
+                     //qml_diagcontroller.diagRequest()
                      var myModelItem = diagModel.get(path_view.currentIndex)
                      client_area.clientUrl = myModelItem.pageSource
                  }
@@ -138,7 +139,6 @@ Item {
 
      Item {
          id: description_item
-
          Rectangle {
              anchors.fill: parent
              radius: 10
@@ -254,7 +254,7 @@ Item {
                 var myModelItem = diagModel.get(path_view.currentIndex)
                 description_text.text = myModelItem.description
             }
-            }
+     }
 
     // Diag selector
     Text {

@@ -9,6 +9,15 @@ DiagController::DiagController(QObject *parent) : QObject(parent)
                                                          this);
 }
 
+QString DiagController::diagFram(){
+    return m_diagFram;
+}
+
+void DiagController::setDiagFram(const QString &diagFram){
+    m_diagFram = diagFram;
+    emit diagFramChanged();
+}
+
 QString DiagController::diagRequest()
 {
     // theLight->turnOn();
@@ -33,3 +42,4 @@ QString DiagController::diagRequest()
             qPrintable(QDBusConnection::sessionBus().lastError().message()));
 
 }
+
