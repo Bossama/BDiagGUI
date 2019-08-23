@@ -1,133 +1,122 @@
-
-import QtQuick 2.2
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 1.2
-import QtQuick.Window 2.2
-import QtQml.Models 2.11
+import QtQuick 2.0
+import QtQuick.Controls 2.3
+import QtQuick.Dialogs.qml 1.0
 import com.ACTIA.BDiag 1.0
 
+
 Item {
-    id: autodiag
-    anchors.fill: parent
-
-    DiagController{
-        id: qml_diagcontroller
-    }
-
     Rectangle {
+        id: rectangle
+        color: "#babdb6"
+        anchors.rightMargin: 0
+        anchors.bottomMargin: 0
+        anchors.leftMargin: 0
+        anchors.topMargin: 0
         anchors.fill: parent
-        color: "#959792" //"#3C3CA7"
-        opacity: 1
+
+        DiagController{
+            id: qml_diagcontroller
+        }
+
+
+        Button {
+            id: button
+            x: 596
+            y: 125
+            width: 106
+            height: 40
+            text: "Available"
+            focusPolicy: Qt.TabFocus
+
+        }
+
+        TextField {
+            id: textField
+            x: 300
+            y: 119
+            placeholderText: qsTr("Text Field")
+            text: qml_diagcontroller.diagRequest()
+        }
+
+        Switch {
+            id: switch1
+            x: 50
+            y: 114
+            text: qsTr("Engine")
+            checkable: button.enabled = false
+        }
+
+        Button {
+            id: button1
+            x: 596
+            y: 215
+            text: "Available"
+            focusPolicy: Qt.TabFocus
+        }
+
+        TextField {
+            id: textField1
+            x: 300
+            y: 220
+            text: qsTr("Text Field")
+        }
+
+        Switch {
+            id: switch2
+            x: 50
+            y: 215
+            text: qsTr("Oiel")
+        }
+
+        Button {
+            id: button2
+            x: 596
+            y: 304
+            text: "Available"
+            focusPolicy: Qt.TabFocus
+        }
+
+        TextField {
+            id: textField2
+            x: 300
+            y: 309
+            text: qsTr("Text Field")
+        }
+
+        Switch {
+            id: switch3
+            x: 50
+            y: 304
+            text: qsTr("Pression")
+        }
+
+        Grid {
+        }
+
+        Row {
+        }
+
+        Column {
+        }
+
+        Column {
+        }
+
+        Label {
+            id: label
+            x: 320
+            y: 56
+            text: qsTr("DTC Descreption")
+            font.pointSize: 16
+        }
+
+        Label {
+            id: label1
+            x: 596
+            y: 56
+            text: qsTr("Help Support")
+            font.pointSize: 16
+        }
     }
-
-
-    TableView {
-        id: tableView
-
-        frameVisible: false
-        sortIndicatorVisible: true
-
-        anchors.fill: parent
-
-        Layout.minimumWidth: 400
-        Layout.minimumHeight: 240
-        Layout.preferredWidth: 600
-        Layout.preferredHeight: 400
-
-        TableViewColumn {
-            id: dTCColumn
-            title: "DTC List"
-            role: "DTC"
-            movable: false
-            resizable: false
-            width: tableView.viewport.width /3 //- authorColumn.width
-        }
-
-        TableViewColumn {
-            id: descptionColumn
-            title: "Descreption"
-            role: "description"
-            movable: false
-            resizable: false
-            width: tableView.viewport.width /3
-        }
-
-        TableViewColumn {
-            id: demoColumn
-            title: "Demo"
-            role: "demo"
-            movable: false
-            resizable: false
-            width: tableView.viewport.width /3
-        }
-
-        model:     ListModel {
-            id: libraryModel
-            ListElement {
-                DTC: "30000500000000"
-                description: "Some problems in the"
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "35000500000000"
-                description: "Shut down your engine"
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "30080500000000"
-                description: "Some problems in the..."
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "30000500000000"
-                description: "Some problems in the"
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "35000500000000"
-                description: "Shut down your engine"
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "30080500000000"
-                description: "Some problems in the..."
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "30000500000000"
-                description: "Some problems in the"
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "35000500000000"
-                description: "Shut down your engine"
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "30080500000000"
-                description: "Some problems in the..."
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "30000500000000"
-                description: "Some problems in the"
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "35000500000000"
-                description: "Shut down your engine"
-                demo: "Available"
-            }
-            ListElement {
-                DTC: "30080500000000"
-                description: "Some problems in the..."
-                demo: "Available"
-            }
-        }
-
-
-        }
 
 }
-
-

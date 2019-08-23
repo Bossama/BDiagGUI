@@ -19,6 +19,9 @@
         <file>fonts/roboto-regular.ttf</file>
         <file>content/TextButton.qml</file>
         <file>content/RecipesModel.qml</file>
+        <file>content/PageManDiag.qml</file>
+        <file>content/PageHistoric.qml</file>
+        <file>content/PageAutoDiag2.qml</file>
         <file>content/PageAutoDiag.qml</file>
     </qresource>
 </RCC>

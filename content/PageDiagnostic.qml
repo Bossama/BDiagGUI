@@ -58,12 +58,14 @@ Item {
        ListElement {
            name: "HISTORY";
            icon: "qrc:/images/icon_history.png"
-           description: " Show previous diagnostic results and delete fixed one " }
+           description: " Show previous diagnostic results and delete fixed one "
+           pageSource: "qrc:/content/PageHistoric.qml" }
        ListElement {
            name: "MANUAL-DIAG";
            icon: "qrc:/images/diagnostic.png"
-           description: " Perform a quick diagnostic by selecting the desired components " }
-     }
+           description: " Perform a quick diagnostic by selecting the desired components "
+           pageSource: "qrc:/content/PageManDiag.qml" }
+    }
 
     Component {
          id: appDelegate
