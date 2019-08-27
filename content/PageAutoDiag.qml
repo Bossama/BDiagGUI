@@ -18,7 +18,6 @@ Item {
             id: qml_diagcontroller
         }
 
-
         Button {
             id: button
             x: 596
@@ -43,7 +42,7 @@ Item {
             x: 50
             y: 114
             text: qsTr("Engine")
-            checkable: button.enabled = false
+            checkable: button.enabled = true
         }
 
         Button {
@@ -115,6 +114,14 @@ Item {
             x: 596
             y: 56
             text: qsTr("Help Support")
+            font.pointSize: 16
+        }
+
+        Label {
+            id: label2
+            x: 60
+            y: 56
+            text: qsTr("Diagnostics")
             font.pointSize: 16
         }
     }

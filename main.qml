@@ -149,12 +149,11 @@ Window {
                 onClicked: {
                     var myModelItem = menue_model.get(path_view.currentIndex)
                     client_area.clientUrl = myModelItem.pageSource
-                    qml_diagcontroller.diagRequest()
+                    //qml_diagcontroller.diagRequest()
                 }
             }
         }
     }
-
 
 
     Item {
@@ -201,7 +200,7 @@ Window {
             onClicked: {
                 var myModelItem = menue_model.get(path_view.currentIndex)
                 client_area.clientUrl = myModelItem.pageSource
-                qml_diagcontroller.diagRequest()
+                //qml_diagcontroller.diagRequest()
             }
         }
 

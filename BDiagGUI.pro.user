@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.6.2, 2019-08-23T16:49:35. -->
+<!-- Written by QtCreator 4.6.2, 2019-08-27T18:39:19. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -550,9 +550,9 @@
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">RemoteLinux.DirectUploadStep</value>
       <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedFiles">
-       <value type="QString">/home/boss/qt_Workspace/BDiagGUI/content/favorites.xml</value>
        <value type="QString">/home/boss/qt_Workspace/build-BDiagGUI-PHYTEC_18-Debug/BDiagGUI</value>
        <value type="QString">/home/boss/qt_Workspace/BDiag_GUI.App/content/favorites.xml</value>
+       <value type="QString">/home/boss/qt_Workspace/BDiagGUI/content/favorites.xml</value>
       </valuelist>
       <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedHosts">
        <value type="QString">192.168.3.11</value>
@@ -570,9 +570,9 @@
        <value type="QString">/opt/phytec-yogurt/BSP-Yocto-i.MX6-PD18.1.0/sysroots/cortexa9hf-neon-phytec-linux-gnueabi</value>
       </valuelist>
       <valuelist type="QVariantList" key="ProjectExplorer.RunConfiguration.LastDeployedTimes">
-       <value type="QDateTime">2019-06-18T15:08:57.964</value>
        <value type="QDateTime">2019-07-10T18:20:38.277</value>
        <value type="QDateTime">2019-06-11T18:03:29.863</value>
+       <value type="QDateTime">2019-06-18T15:08:57.964</value>
       </valuelist>
       <value type="bool" key="RemoteLinux.GenericDirectUploadStep.IgnoreMissingFiles">false</value>
       <value type="bool" key="RemoteLinux.GenericDirectUploadStep.Incremental">true</value>
