@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.3
+import QtQuick.Controls 2.2
 import QtQuick.Dialogs.qml 1.0
 import com.ACTIA.BDiag 1.0
 

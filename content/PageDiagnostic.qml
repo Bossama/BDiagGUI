@@ -56,15 +56,16 @@ Item {
            description: " Run a full diagnostic to Check all components connected to the BDiag Tool "
            pageSource: "qrc:/content/PageAutoDiag.qml"}
        ListElement {
+          name: "MANUAL-DIAG";
+          icon: "qrc:/images/diagnostic.png"
+          description: " Perform a quick diagnostic by selecting the desired components "
+          pageSource: "qrc:/content/PageManDiag.qml" }
+       ListElement {
            name: "HISTORY";
            icon: "qrc:/images/icon_history.png"
            description: " Show previous diagnostic results and delete fixed one "
            pageSource: "qrc:/content/PageHistoric.qml" }
-       ListElement {
-           name: "MANUAL-DIAG";
-           icon: "qrc:/images/diagnostic.png"
-           description: " Perform a quick diagnostic by selecting the desired components "
-           pageSource: "qrc:/content/PageManDiag.qml" }
+
     }
 
     Component {
