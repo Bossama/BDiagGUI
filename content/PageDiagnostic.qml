@@ -45,7 +45,6 @@ Item {
 
     DiagController{
         id : qml_diagcontroller
-
     }
 
     ListModel {
@@ -56,16 +55,15 @@ Item {
            description: " Run a full diagnostic to Check all components connected to the BDiag Tool "
            pageSource: "qrc:/content/PageAutoDiag.qml"}
        ListElement {
-          name: "MANUAL-DIAG";
-          icon: "qrc:/images/diagnostic.png"
-          description: " Perform a quick diagnostic by selecting the desired components "
-          pageSource: "qrc:/content/PageManDiag.qml" }
-       ListElement {
            name: "HISTORY";
            icon: "qrc:/images/icon_history.png"
            description: " Show previous diagnostic results and delete fixed one "
            pageSource: "qrc:/content/PageHistoric.qml" }
-
+       ListElement {
+           name: "MANUAL-DIAG";
+           icon: "qrc:/images/diagnostic.png"
+           description: " Perform a quick diagnostic by selecting the desired components "
+           pageSource: "qrc:/content/PageAutoDiag.qml" }
     }
 
     Component {
@@ -102,7 +100,7 @@ Item {
                  anchors.fill: parent
                  //onClicked: view.currentIndex = index
                  onClicked: {
-                     //qml_diagcontroller.diagRequest()
+                     qml_diagcontroller.diagRequest()
                      var myModelItem = diagModel.get(path_view.currentIndex)
                      client_area.clientUrl = myModelItem.pageSource
                  }
@@ -170,7 +168,7 @@ Item {
          MouseArea{
              anchors.fill: parent
              onClicked: {
-                 qml_diagcontroller.diagRequest()
+                 //qml_diagcontroller.diagRequest()
                  var myModelItem = diagModel.get(path_view.currentIndex)
                  client_area.clientUrl = myModelItem.pageSource
              }

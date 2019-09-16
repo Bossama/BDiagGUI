@@ -32,6 +32,7 @@
 #include "src/FileIo.h"
 #include <QDebug>
 #include <QtCore/QStringList>
+#include <QMediaPlayer>
 #include <QtDBus/QtDBus>
 #include "diagcontroller.h"
 
@@ -40,7 +41,7 @@ void WriteDefaultSettings()
 {
     QSettings settings;
     QString group = settings.group();
-    qDebug( group.toLatin1() );
+    //qDebug( group.toLatin1() );
     settings.setValue("led1", "/sys/devices/user_leds.8/leds/user_led_green/brightness" );
     settings.setValue("led2", "/sys/devices/user_leds.8/leds/user_led_yellow/brightness" );
     settings.setValue("led3", "/sys/devices/user_leds.8/leds/user_led_red/brightness" );
@@ -128,7 +129,6 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<DiagController>("com.ACTIA.BDiag", 1, 0, "DiagController");
 
-
     if (!QDBusConnection::systemBus().isConnected()) {
         fprintf(stderr, "Cannot connect to the D-Bus session bus.\n"
                         "To start it, run:\n"
@@ -145,7 +145,6 @@ int main(int argc, char *argv[])
     DiagController diagControl;
     engine.rootContext()->setContextProperty("diagControl", &diagControl);
     diagControl.diagRequest();
-
 
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));

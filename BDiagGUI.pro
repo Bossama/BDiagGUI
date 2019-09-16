@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets dbus
+QT += qml quick widgets multimedia dbus
 CONFIG += c++11 qml_debug
 DBUS_INTERFACES += controller.xml
 DBUS_ADAPTORS += controller.xml
@@ -27,7 +27,8 @@ HEADERS += \
     src/FileIo.h \
     src/ProcessIf.h \
     src/SysFsLed.h \
-    src/SysFsGpio.h \
+    src/SysFsGpio.h \ #\
+    diagcontroller.h
     diagcontroller.h
 
 OTHER_FILES += \
@@ -35,6 +36,7 @@ OTHER_FILES += \
 
 
 DISTFILES += \
+    ../../Pictures/Yocto1.png \
     fonts/fontawesome-webfont.ttf \
     fonts/icomoon.ttf \
     fonts/roboto-regular.ttf \

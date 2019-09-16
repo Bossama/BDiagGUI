@@ -1,66 +1,68 @@
 <RCC>
     <qresource prefix="/">
-        <file>images/BG_Image_Phytec_800x480.png</file>
-        <file>images/icon_dummy.png</file>
-        <file>images/icon_multimedia.png</file>
-        <file>images/btn_back.png</file>
-        <file>images/btn_home.png</file>
-        <file>images/blur-circle.png</file>
-        <file>images/icon_analog.png</file>
-        <file>images/icon_multitouch.png</file>
-        <file>images/btn_file.png</file>
-        <file>images/btn_pause.png</file>
-        <file>images/btn_play.png</file>
-        <file>images/btn_stop.png</file>
-        <file>images/btn_active_bgnd.png</file>
-        <file>images/icon_folder.png</file>
-        <file>images/icon_folder_30x21.png</file>
-        <file>images/page_info_wega.png</file>
-        <file>images/btn_foreward.png</file>
-        <file>images/icon_phytec.png</file>
-        <file>images/fader_background.png</file>
-        <file>images/fader_knob.png</file>
-        <file>images/Temperature Background.png</file>
-        <file>images/Temperature Border.png</file>
-        <file>images/Temperature Gradient.png</file>
+        <file>images/autodiag.png</file>
         <file>images/bargraph_background.png</file>
         <file>images/bargraph_on.png</file>
         <file>images/bargraph_scale.png</file>
-        <file>images/Needle.png</file>
-        <file>images/Needle_shadow.png</file>
-        <file>images/Scale.png</file>
-        <file>images/icon_image_viewer_128x128.png</file>
-        <file>images/icon_loading.png</file>
-        <file>images/page_PHYTEC_1024x768.bmp</file>
-        <file>images/btn_web_go.png</file>
-        <file>images/icon_web_128x128.png</file>
+        <file>images/BG_Image_Phytec_800x480.png</file>
+        <file>images/blur-circle.png</file>
+        <file>images/btn_active_bgnd.png</file>
+        <file>images/btn_back.png</file>
         <file>images/btn_back_40x40.png</file>
+        <file>images/btn_file.png</file>
+        <file>images/btn_foreward.png</file>
         <file>images/btn_foreward_40x40.png</file>
+        <file>images/btn_home.png</file>
+        <file>images/btn_home2.png</file>
         <file>images/btn_load_40x40.png</file>
         <file>images/btn_menu_40x40.png</file>
+        <file>images/btn_pause.png</file>
+        <file>images/btn_play.png</file>
         <file>images/btn_reload_40x40.png</file>
+        <file>images/btn_stop.png</file>
         <file>images/btn_stopload_40x40.png</file>
-        <file>images/icon_vkey_128x128.png</file>
-        <file>images/icon_gpio_128x128.png</file>
-        <file>images/page_phytec_1.png</file>
-        <file>images/page_phytec_2.png</file>
-        <file>images/page_phytec_3.png</file>
-        <file>images/icon_config.png</file>
-        <file>images/icon_diagnostic.png</file>
-        <file>images/icon_info.png</file>
-        <file>images/autodiag.png</file>
+        <file>images/btn_web_go.png</file>
+        <file>images/ctl_back.png</file>
         <file>images/diagnostic.png</file>
         <file>images/diagnostic2.png</file>
         <file>images/diagnostic2.xcf</file>
-        <file>images/icon_history.png</file>
+        <file>images/fader_background.png</file>
+        <file>images/fader_knob.png</file>
+        <file>images/icon_about.png</file>
+        <file>images/icon_analog.png</file>
         <file>images/icon_autodiag.png</file>
         <file>images/icon_autodiag2.png</file>
-        <file>images/btn_home2.png</file>
+        <file>images/icon_autodiag2.xcf</file>
+        <file>images/icon_config.png</file>
+        <file>images/icon_diagnostic.png</file>
+        <file>images/icon_dummy.png</file>
+        <file>images/icon_folder.png</file>
+        <file>images/icon_folder_30x21.png</file>
+        <file>images/icon_gpio_128x128.png</file>
+        <file>images/icon_history.png</file>
+        <file>images/icon_image_viewer_128x128.png</file>
+        <file>images/icon_info.png</file>
+        <file>images/icon_language.png</file>
+        <file>images/icon_loading.png</file>
+        <file>images/icon_multimedia.png</file>
+        <file>images/icon_multitouch.png</file>
         <file>images/icon_network.png</file>
         <file>images/icon_network2.png</file>
-        <file>images/icon_users.png</file>
-        <file>images/icon_about.png</file>
         <file>images/icon_OTA.png</file>
-        <file>images/icon_language.png</file>
+        <file>images/icon_phytec.png</file>
+        <file>images/icon_users.png</file>
+        <file>images/icon_vkey_128x128.png</file>
+        <file>images/icon_web_128x128.png</file>
+        <file>images/Needle.png</file>
+        <file>images/Needle_shadow.png</file>
+        <file>images/page_info_wega.png</file>
+        <file>images/page_phytec_1.png</file>
+        <file>images/page_phytec_2.png</file>
+        <file>images/page_phytec_3.png</file>
+        <file>images/page_PHYTEC_1024x768.bmp</file>
+        <file>images/Scale.png</file>
+        <file>images/Temperature Background.png</file>
+        <file>images/Temperature Border.png</file>
+        <file>images/Temperature Gradient.png</file>
     </qresource>
 </RCC>

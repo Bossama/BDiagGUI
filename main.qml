@@ -29,7 +29,7 @@ import QtQuick.Window 2.0
 import QtQuick.Controls 1.2
 import QtGraphicalEffects 1.0
 import QtQuick.VirtualKeyboard 1.0
-import com.ACTIA.BDiag 1.0
+//import com.ACTIA.BDiag 1.0
 
 
 Window {
@@ -42,9 +42,9 @@ Window {
     color: "black"
     Component.onCompleted: root.showMaximized()
 
-    DiagController{
-        id :qml_diagcontroller
-    }
+//    DiagController{
+//        id :qml_diagcontroller
+//    }
 
     Image {
         id: background_image
@@ -72,30 +72,7 @@ Window {
             pageSource: "content/PageAnalogMeters.qml"
             description: "VISUALIZE INFO TAINEMENT"
         }
-       /* ListElement {
-            name: "Multitouch<br>Demo"
-            icon: "images/icon_multitouch.png"
-            pageSource: "content/PageMultitouch.qml"
-            description: "USE MULTITOUCH"
-        }
-        ListElement {
-            name: "WebBrowser"
-            icon: "images/icon_web_128x128.png"
-            pageSource: "content/PageWebbrowser.qml"
-            description: "BROWSE THE WEB"
-        }
-        ListElement {
-            name: "Virtual Keyboard Test"
-            icon: "qrc:/images/icon_vkey_128x128.png"
-            pageSource: "qrc:/content/PageVirtualKeyboardTest.qml"
-            description: "TYPE IN TEXT"
-        }
-        ListElement {
-            name: "Info"
-            icon: "qrc:/images/icon_phytec.png"
-            pageSource: "content/PageCredits.qml"
-            description: "SHOW COMPANY INFORMATION"
-        }*/
+
     }
 
     Component {
@@ -155,7 +132,6 @@ Window {
         }
     }
 
-
     Item {
         id: description_item_dummy
         width: 600
@@ -200,7 +176,7 @@ Window {
             onClicked: {
                 var myModelItem = menue_model.get(path_view.currentIndex)
                 client_area.clientUrl = myModelItem.pageSource
-                //qml_diagcontroller.diagRequest()
+                qml_diagcontroller.diagRequest()
             }
         }
 
@@ -378,5 +354,4 @@ Window {
             }
         }
     }
-
 }

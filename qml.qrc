@@ -23,5 +23,8 @@
         <file>content/PageHistoric.qml</file>
         <file>content/PageAutoDiag2.qml</file>
         <file>content/PageAutoDiag.qml</file>
+        <file>content/PageVideo.qml</file>
+        <file>content/PageImage.qml</file>
+        <file>content/PageGIF.qml</file>
     </qresource>
 </RCC>
